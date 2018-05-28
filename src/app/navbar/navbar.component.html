@@ -6,16 +6,18 @@
 
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
+      <ng-template #elseBlock>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/cart">Cart</a>
+        <a class="nav-link" routerLink="/login">Login with Google</a>
       </li>
-      <li ngbDropdown class="nav-item dropdown">
-        <a ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{username}}</a>
+    </ng-template>
+      <li ngbDropdown *ngIf="userOb | async as username; else elseBlock" class="nav-item dropdown">
+        <a ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{username.displayName}}</a>
         <div  ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
           <a class="dropdown-item" href="/cart">Cart</a>
           <a class="dropdown-item" href="/admin/orders">Manage Orders</a>
           <a class="dropdown-item" href="/admin/products">Manage Products</a>
-          <a class="dropdown-item" href="/admin/products">Logout</a>
+          <a class="dropdown-item" href="/" (click)="logout()">Logout</a>
         </div>
       </li>
     </ul>

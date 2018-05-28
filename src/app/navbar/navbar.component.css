@@ -1,8 +1,8 @@
 
-@font-face {
+/* @font-face {
     font-family: 'apfont';
     src: url("/fonts/chopin-script/ChopinScript.ttf") format('truetype');
- }
+ } */
 .navbar-brand span{
     background: url("/assets/painting.png") no-repeat center;
     background-size: 100% 100%;
@@ -12,7 +12,6 @@
     vertical-align: middle;
 }
 .navbar-brand label{
-    font-family: apfont;
     display: inline-block;
     vertical-align: middle;
     margin: 0 0 0 5px;
