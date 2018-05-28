@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StaticInjector } from '@angular/core/src/di/injector';
 
 @Component({
   selector: 'app-navbar',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
+  username: String;
   constructor() { }
 
   ngOnInit() {
+    this.username= "Andy";
   }
 
 }
