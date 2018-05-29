@@ -1,2 +1,7 @@
-<button type="submit" class="btn btn-primary" (click)="login()">Login</button>
-  
+
+<div class="btn-group-vertical">
+    <button type="submit" class="btn btn-primary" (click)="login(1)">Login with Google</button>
+    <button type="submit" class="btn btn-primary" disabled (click)="login(2)">Login with Facebook</button>
+    <button type="submit" class="btn btn-primary" disabled (click)="login(3)">Login with Phone</button>
+    <button type="submit" class="btn btn-primary" disabled (click)="signIn()">Sign In</button>    
+</div>

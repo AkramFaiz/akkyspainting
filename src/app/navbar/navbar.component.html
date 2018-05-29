@@ -8,15 +8,17 @@
     <ul class="navbar-nav mr-auto">
       <ng-template #elseBlock>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/login">Login with Google</a>
+        <a class="nav-link" routerLink="/login">Login</a>
       </li>
     </ng-template>
-      <li ngbDropdown *ngIf="userOb | async as username; else elseBlock" class="nav-item dropdown">
-        <a ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{username.displayName}}</a>
+      <li ngbDropdown *ngIf="appUser as username; else elseBlock" class="nav-item dropdown">
+        <a ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{username.name}}</a>
         <div  ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
           <a class="dropdown-item" href="/cart">Cart</a>
-          <a class="dropdown-item" href="/admin/orders">Manage Orders</a>
-          <a class="dropdown-item" href="/admin/products">Manage Products</a>
+          <ng-container *ngIf="username.isAdmin">
+            <a class="dropdown-item" href="/admin/orders">Manage Orders</a>
+            <a class="dropdown-item" href="/admin/products">Manage Products</a>
+          </ng-container>
           <a class="dropdown-item" href="/" (click)="logout()">Logout</a>
         </div>
       </li>
